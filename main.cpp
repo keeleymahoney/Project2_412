@@ -22,18 +22,12 @@ int main()
         s_balancer.assignRequest();
         p_balancer.assignRequest();
 
-        if(time % 500 == 0)
-        {
-
-            s_balancer.scale();
-            p_balancer.scale();
-
-        }
-
-        if(time % 25 == 0)
+        if(time % 100 == 0)
         {
             s_balancer.generateRequests();
+            s_balancer.scale();
             p_balancer.generateRequests();
+            p_balancer.scale();
         }
         time++;
     }

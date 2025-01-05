@@ -34,12 +34,12 @@ void LoadBalancer::scale()
     if(std::ceil(requests.size() / 20.0) > servers.size())
     {
         std::cout << "The needed servers for type " << type << " is " << std::to_string(std::ceil(requests.size() / 20.0)) << " and the current number is " << std::to_string(servers.size()) << std::endl;
-        scaleUp(std::ceil(requests.size() / 20.0 - servers.size()));
+        scaleUp(std::ceil(requests.size() / 20.0) - servers.size());
     }
 
     else if(std::ceil(requests.size() / 20.0) < servers.size())
     {
-        std::cout << "The needed servers for s is " << std::to_string(std::ceil(requests.size() / 20.0)) << " and the current number is " << std::to_string(servers.size()) << std::endl;
+        std::cout << "The needed servers for type " << type << " is " << std::to_string(std::ceil(requests.size() / 20.0)) << " and the current number is " << std::to_string(servers.size()) << std::endl;
         scaleDown(servers.size() - std::ceil(requests.size() / 20.0));
     }
 }
