@@ -27,6 +27,11 @@ int main()
             s_balancer.generateRequests();
             s_balancer.scale();
             p_balancer.generateRequests();
+            
+        }
+
+        if(time % 500 == 0)
+        {
             p_balancer.scale();
         }
         time++;
