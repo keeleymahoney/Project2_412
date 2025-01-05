@@ -4,6 +4,7 @@
 
 class Request {
     public:
+        Request();
         Request(char job_type);
         int getTime();
         void setTime(int time_val);

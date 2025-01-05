@@ -12,8 +12,9 @@ class LoadBalancer
         void assignRequest();
         void scaleUp(int num);
         void scaleDown(int num);
-        void requestsGenerator(char type);
+        void generateRequests();
         void processServers();
+        void scale();
         std::vector<WebServer>& getServers();
         std::queue<Request>& getRequests();
 

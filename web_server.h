@@ -4,7 +4,7 @@
 
 class WebServer {
     public:
-        WebServer();
+        WebServer(char type);
         void processRequest();
         Request getRequest();
         bool getBusy();
@@ -12,7 +12,9 @@ class WebServer {
         
     private:
         Request current_request;
+        char type;
         bool busy;
+        
 
 };
 

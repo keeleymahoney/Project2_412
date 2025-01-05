@@ -15,14 +15,28 @@ int main()
         p_balancer.getRequests().push(Request('p'));
     }
 
-    while(time < 10,000)
+    while(time < 10000)
     {
         s_balancer.processServers();
         p_balancer.processServers();
         s_balancer.assignRequest();
         p_balancer.assignRequest();
+
+        if(time % 500 == 0)
+        {
+
+            s_balancer.scale();
+            p_balancer.scale();
+
+        }
+
+        if(time % 25 == 0)
+        {
+            s_balancer.generateRequests();
+            p_balancer.generateRequests();
+        }
         time++;
     }
 
-
+    return 0;
 }
