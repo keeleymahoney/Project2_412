@@ -92,7 +92,7 @@ int main()
     std::cout << "Current number of servers: " << p_balancer.getServers().size() << std::endl;
     std::cout << "Current number of requests in the queue " << p_balancer.getRequests().size() << std::endl << std::endl;
 
-    std::cout << "Total time: " << time << " clock circles" << std::endl;
+    std::cout << "Total time: " << time << " clock cycles" << std::endl;
 
     return 0;
 }
