@@ -39,9 +39,13 @@ int main()
     LoadBalancer s_balancer = LoadBalancer('s', s_servers);
     LoadBalancer p_balancer = LoadBalancer('p', p_servers);
 
-    for(int i = 0; i < 200; i++)
+    for(int i = 0; i < 20*s_servers; i++)
     {
         s_balancer.getRequests().push(Request('s'));
+    }
+
+    for(int k = 0; k < 20*p_servers; k++)
+    {
         p_balancer.getRequests().push(Request('p'));
     }
 
@@ -75,7 +79,7 @@ int main()
     std::cout << "---------Stats for s load balancer---------" << std::endl;
     std::cout << "S requests range from 10 to 40 seconds" << std::endl;
     std::cout << "Initial servers: " << s_servers << std::endl;
-    std::cout << "Initial starting queue size: 200" << std::endl;
+    std::cout << "Initial starting queue size: " << (20*s_servers) << std::endl;
     std::cout << "Total Requests processed: " << s_balancer.getTotalRequests() << std::endl;
     std::cout << "Total servers scaled up: " << s_balancer.getScaleUp() << std::endl;
     std::cout << "Total servers scaled down: " << s_balancer.getScaleDown() << std::endl;
@@ -85,7 +89,7 @@ int main()
     std::cout << "---------Stats for p load balancer---------" << std::endl;
     std::cout << "P requests range from 50 to 100 seconds" << std::endl;
     std::cout << "Initial servers: " << p_servers << std::endl;
-    std::cout << "Initial starting queue size: 200" << std::endl;
+    std::cout << "Initial starting queue size: " << (20*p_servers) << std::endl;
     std::cout << "Total Requests processed: " << p_balancer.getTotalRequests() << std::endl;
     std::cout << "Total servers scaled up: " << p_balancer.getScaleUp() << std::endl;
     std::cout << "Total servers scaled down: " << p_balancer.getScaleDown() << std::endl;
