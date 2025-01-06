@@ -2,10 +2,9 @@
 #include <iostream>
 #include <random>
 
-LoadBalancer:: LoadBalancer(char type) : type(type)
+LoadBalancer:: LoadBalancer(char type, int num) : type(type), scale_up(0), scale_down(0)
 {
-
-    for(int i = 0; i < 5; i++)
+    for(int i = 0; i < num; i++)
     {
         WebServer server = WebServer(type);
 
@@ -46,20 +45,22 @@ void LoadBalancer::scale()
 
 void LoadBalancer::scaleUp(int num)
 {
-    std::cout << "adding " << std::to_string(num) << " servers" << std::endl;
+    std::cout << "Adding " << std::to_string(num) << " servers to type " << type <<  std::endl;
     for(int i = 0; i < num; i++)
     {
         servers.push_back(WebServer(type));
     }
+    scale_up++;
 }
 
 void LoadBalancer::scaleDown(int num)
 {
-    std::cout << "deleting " << std::to_string(num) << " servers" << std::endl;
+    std::cout << "Deleting " << std::to_string(num) << " servers from type " << type <<  std::endl;
     for(int i = 0; i < num; i++)
     {
         servers.pop_back();
     }
+    scale_down++;
 }
 
 void LoadBalancer::processServers()
@@ -91,5 +92,26 @@ std::vector<WebServer>& LoadBalancer::getServers()
 std::queue<Request>& LoadBalancer::getRequests()
 {
     return requests;
+}
+
+int LoadBalancer::getTotalRequests()
+{
+    int total = 0;
+    for(auto& server : servers)
+    {
+        total += server.getTotal();
+    }
+    return total;
+
+}
+
+int LoadBalancer::getScaleUp()
+{
+    return scale_up;
+}
+
+int LoadBalancer::getScaleDown()
+{
+    return scale_down;
 }
 

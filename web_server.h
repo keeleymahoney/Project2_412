@@ -8,12 +8,14 @@ class WebServer {
         void processRequest();
         Request getRequest();
         bool getBusy();
+        int getTotal();
         void setRequest(Request& request);
         
     private:
         Request current_request;
         char type;
         bool busy;
+        int total_processed;
         
 
 };
