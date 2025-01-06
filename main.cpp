@@ -1,8 +1,27 @@
+/**
+ * @file main.cpp
+ * @brief Entry point for the load balancing simulation.
+ * 
+ * Simulates the behavior of load balancers managing requests across web servers.
+ * Users can specify the number of time cycles and servers for both streaming ('s') 
+ * and processing ('p') job types. The program generates requests, processes them, 
+ * and scales servers dynamically based on time cycles.
+ */
+
 #include "web_server.h"
 #include "request.h"
 #include "load_balancer.h"
 #include <iostream>
 
+/**
+ * @brief Main function for the load balancing simulation.
+ * 
+ * This function initializes the load balancers, generates requests, processes 
+ * them through time cycles, and dynamically scales the servers. At the end, 
+ * it outputs statistics about the load balancers and their performance.
+ * 
+ * @return Returns 0 upon successful execution.
+ */
 int main()
 {
     int time = 0;
@@ -54,7 +73,9 @@ int main()
 
     std::cout << '\n' << std::endl;
     std::cout << "---------Stats for s load balancer---------" << std::endl;
+    std::cout << "S requests range from 10 to 40 seconds" << std::endl;
     std::cout << "Initial servers: " << s_servers << std::endl;
+    std::cout << "Initial starting queue size: 200" << std::endl;
     std::cout << "Total Requests processed: " << s_balancer.getTotalRequests() << std::endl;
     std::cout << "Total servers scaled up: " << s_balancer.getScaleUp() << std::endl;
     std::cout << "Total servers scaled down: " << s_balancer.getScaleDown() << std::endl;
@@ -62,7 +83,9 @@ int main()
     std::cout << "Current number of requests in the queue " << s_balancer.getRequests().size() << std::endl << std::endl;
 
     std::cout << "---------Stats for p load balancer---------" << std::endl;
+    std::cout << "P requests range from 50 to 100 seconds" << std::endl;
     std::cout << "Initial servers: " << p_servers << std::endl;
+    std::cout << "Initial starting queue size: 200" << std::endl;
     std::cout << "Total Requests processed: " << p_balancer.getTotalRequests() << std::endl;
     std::cout << "Total servers scaled up: " << p_balancer.getScaleUp() << std::endl;
     std::cout << "Total servers scaled down: " << p_balancer.getScaleDown() << std::endl;

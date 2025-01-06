@@ -1,0 +1,112 @@
+\doxysection{Web\+Server Class Reference}
+\hypertarget{class_web_server}{}\label{class_web_server}\index{WebServer@{WebServer}}
+
+
+{\ttfamily \#include $<$web\+\_\+server.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_web_server_a94ad031e6a83627d4a576e354dd354ac}{Web\+Server}} (char type)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_web_server}{Web\+Server} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_web_server_af4dad1ab06d4eb72773ba9f3e5482251}{process\+Request}} ()
+\begin{DoxyCompactList}\small\item\em Processes the current request assigned to the server. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_request}{Request}} \mbox{\hyperlink{class_web_server_aa5e1fe7b67c6ef5bef717d774ccb53f9}{get\+Request}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current request assigned to the server. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_web_server_ad5af1e30da65793cde12d95bb74d4288}{get\+Busy}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the server is currently busy. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_web_server_a02ffac0344fc83be17d7b5caf0fcb6f4}{get\+Total}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the total number of requests processed by the server. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_web_server_a7574ccae9aec8b31feeb6019449c792d}{set\+Request}} (\mbox{\hyperlink{class_request}{Request}} \&request)
+\begin{DoxyCompactList}\small\item\em Assigns a new request to the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_web_server_a94ad031e6a83627d4a576e354dd354ac}\index{WebServer@{WebServer}!WebServer@{WebServer}}
+\index{WebServer@{WebServer}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{WebServer()}{WebServer()}}
+{\footnotesize\ttfamily \label{class_web_server_a94ad031e6a83627d4a576e354dd354ac} 
+Web\+Server\+::\+Web\+Server (\begin{DoxyParamCaption}\item[{char}]{type}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_web_server}{Web\+Server} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of requests this server handles (\textquotesingle{}s\textquotesingle{} or \textquotesingle{}p\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_web_server_ad5af1e30da65793cde12d95bb74d4288}\index{WebServer@{WebServer}!getBusy@{getBusy}}
+\index{getBusy@{getBusy}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{getBusy()}{getBusy()}}
+{\footnotesize\ttfamily \label{class_web_server_ad5af1e30da65793cde12d95bb74d4288} 
+bool Web\+Server\+::get\+Busy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the server is currently busy. 
+
+\begin{DoxyReturn}{Returns}
+True if the server is busy, otherwise false. 
+\end{DoxyReturn}
+\Hypertarget{class_web_server_aa5e1fe7b67c6ef5bef717d774ccb53f9}\index{WebServer@{WebServer}!getRequest@{getRequest}}
+\index{getRequest@{getRequest}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{getRequest()}{getRequest()}}
+{\footnotesize\ttfamily \label{class_web_server_aa5e1fe7b67c6ef5bef717d774ccb53f9} 
+\mbox{\hyperlink{class_request}{Request}} Web\+Server\+::get\+Request (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the current request assigned to the server. 
+
+\begin{DoxyReturn}{Returns}
+A copy of the current \doxylink{class_request}{Request} object. 
+\end{DoxyReturn}
+\Hypertarget{class_web_server_a02ffac0344fc83be17d7b5caf0fcb6f4}\index{WebServer@{WebServer}!getTotal@{getTotal}}
+\index{getTotal@{getTotal}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{getTotal()}{getTotal()}}
+{\footnotesize\ttfamily \label{class_web_server_a02ffac0344fc83be17d7b5caf0fcb6f4} 
+int Web\+Server\+::get\+Total (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the total number of requests processed by the server. 
+
+\begin{DoxyReturn}{Returns}
+The total number of completed requests. 
+\end{DoxyReturn}
+\Hypertarget{class_web_server_af4dad1ab06d4eb72773ba9f3e5482251}\index{WebServer@{WebServer}!processRequest@{processRequest}}
+\index{processRequest@{processRequest}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{processRequest()}{processRequest()}}
+{\footnotesize\ttfamily \label{class_web_server_af4dad1ab06d4eb72773ba9f3e5482251} 
+void Web\+Server\+::process\+Request (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Processes the current request assigned to the server. 
+
+Reduces the processing time of the current request by 1 unit. If the processing time reaches 0, the request is completed, and the server becomes free. \Hypertarget{class_web_server_a7574ccae9aec8b31feeb6019449c792d}\index{WebServer@{WebServer}!setRequest@{setRequest}}
+\index{setRequest@{setRequest}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{setRequest()}{setRequest()}}
+{\footnotesize\ttfamily \label{class_web_server_a7574ccae9aec8b31feeb6019449c792d} 
+void Web\+Server\+::set\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_request}{Request}} \&}]{new\+\_\+request}{}\end{DoxyParamCaption})}
+
+
+
+Assigns a new request to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+request} & The new request to be processed by the server. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{web__server_8h}{web\+\_\+server.\+h}}\item 
+\mbox{\hyperlink{web__server_8cpp}{web\+\_\+server.\+cpp}}\end{DoxyCompactItemize}

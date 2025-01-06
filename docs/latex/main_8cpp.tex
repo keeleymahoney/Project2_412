@@ -1,0 +1,39 @@
+\doxysection{main.\+cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+Entry point for the load balancing simulation.  
+
+
+{\ttfamily \#include "{}web\+\_\+server.\+h"{}}\newline
+{\ttfamily \#include "{}request.\+h"{}}\newline
+{\ttfamily \#include "{}load\+\_\+balancer.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function for the load balancing simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Entry point for the load balancing simulation. 
+
+Simulates the behavior of load balancers managing requests across web servers. Users can specify the number of time cycles and servers for both streaming (\textquotesingle{}s\textquotesingle{}) and processing (\textquotesingle{}p\textquotesingle{}) job types. The program generates requests, processes them, and scales servers dynamically based on time cycles. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main function for the load balancing simulation. 
+
+This function initializes the load balancers, generates requests, processes them through time cycles, and dynamically scales the servers. At the end, it outputs statistics about the load balancers and their performance.
+
+\begin{DoxyReturn}{Returns}
+Returns 0 upon successful execution. 
+\end{DoxyReturn}

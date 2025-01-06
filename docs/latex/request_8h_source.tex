@@ -1,0 +1,28 @@
+\doxysection{request.\+h}
+\hypertarget{request_8h_source}{}\label{request_8h_source}\mbox{\hyperlink{request_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ REQUEST\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ REQUEST\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_request_afaf8d8928de7ffff8a3767589489bd33}{Request}}\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_request_afaf8d8928de7ffff8a3767589489bd33}{Request}}();}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_request_afaf8d8928de7ffff8a3767589489bd33}{Request}}(\textcolor{keywordtype}{char}\ job\_type);}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_request_ae9b12daccacebf8496fbecf8c50cd9c9}{getTime}}();}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_request_a48c91a6ef4db4b81bdc4d828065d6a4a}{setTime}}(\textcolor{keywordtype}{int}\ time\_val);}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_request_a2cd51a0faac35e78b3741152cabac497}{getIPIn}}();}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_request_afe2e29868bb980c80047d8f8c724d4c0}{getIPOut}}();}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ std::string\ generateIP();}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ time;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ job\_type;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ std::string\ ip\_in;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::string\ ip\_out;}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

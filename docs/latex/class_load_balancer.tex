@@ -1,0 +1,205 @@
+\doxysection{Load\+Balancer Class Reference}
+\hypertarget{class_load_balancer}{}\label{class_load_balancer}\index{LoadBalancer@{LoadBalancer}}
+
+
+{\ttfamily \#include $<$load\+\_\+balancer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_load_balancer_ae113010a1be1b828722c67e6217bae14}{Load\+Balancer}} (char type, int num)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_load_balancer}{Load\+Balancer} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_adb25b404325b710d496f7dda4d86c505}{assign\+Request}} ()
+\begin{DoxyCompactList}\small\item\em Assigns pending requests to available servers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_a5373c7ae5b5d2c2a92176a713ef07494}{scale\+Up}} (int num)
+\begin{DoxyCompactList}\small\item\em Increases the number of servers by a specified amount. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_aa3128ad651582ef744d2c63651a157cc}{scale\+Down}} (int num)
+\begin{DoxyCompactList}\small\item\em Decreases the number of servers by a specified amount. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_a1b8df390c4252624938aed7e45e1521c}{generate\+Requests}} ()
+\begin{DoxyCompactList}\small\item\em Generates a random number of new requests and adds them to the queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_af5b99b2c69d79311f1ec034df9cc009c}{process\+Servers}} ()
+\begin{DoxyCompactList}\small\item\em Processes requests on all servers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_load_balancer_ac6acbff80213513aa92bc33342ad045c}{scale}} ()
+\begin{DoxyCompactList}\small\item\em Scales the number of servers based on the current queue size. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_load_balancer_aa47c72eb45c13ddefde91a47bedcccc8}{get\+Total\+Requests}} ()
+\begin{DoxyCompactList}\small\item\em Gets the total number of requests processed by all servers. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_load_balancer_ac7cf9aa8265309a9d19b0341b0fe9e88}{get\+Scale\+Up}} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of times servers have been scaled up. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_load_balancer_a6babaf4d1066687029fe0b20d68f36e7}{get\+Scale\+Down}} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of times servers have been scaled down. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_web_server}{Web\+Server}} $>$ \& \mbox{\hyperlink{class_load_balancer_a3417eea38df5d8322cdb0cf4f50986f8}{get\+Servers}} ()
+\begin{DoxyCompactList}\small\item\em Gets the list of servers managed by this \doxylink{class_load_balancer}{Load\+Balancer}. \end{DoxyCompactList}\item 
+std\+::queue$<$ \mbox{\hyperlink{class_request}{Request}} $>$ \& \mbox{\hyperlink{class_load_balancer_a94bdadfaf5a488583a21db87ca90e303}{get\+Requests}} ()
+\begin{DoxyCompactList}\small\item\em Gets the queue of pending requests for this \doxylink{class_load_balancer}{Load\+Balancer}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_load_balancer_ae113010a1be1b828722c67e6217bae14}\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{LoadBalancer()}{LoadBalancer()}}
+{\footnotesize\ttfamily \label{class_load_balancer_ae113010a1be1b828722c67e6217bae14} 
+Load\+Balancer\+::\+Load\+Balancer (\begin{DoxyParamCaption}\item[{char}]{type}{, }\item[{int}]{num}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_load_balancer}{Load\+Balancer} object. 
+
+Initializes the \doxylink{class_load_balancer}{Load\+Balancer} with a specified job type (\textquotesingle{}s\textquotesingle{} or \textquotesingle{}p\textquotesingle{}) and a given number of servers. Each server is added to the \doxylink{class_load_balancer}{Load\+Balancer}\textquotesingle{}s server pool.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The job type for this \doxylink{class_load_balancer}{Load\+Balancer} (\textquotesingle{}s\textquotesingle{} or \textquotesingle{}p\textquotesingle{}). \\
+\hline
+{\em num} & The initial number of servers for the \doxylink{class_load_balancer}{Load\+Balancer}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_load_balancer_adb25b404325b710d496f7dda4d86c505}\index{LoadBalancer@{LoadBalancer}!assignRequest@{assignRequest}}
+\index{assignRequest@{assignRequest}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{assignRequest()}{assignRequest()}}
+{\footnotesize\ttfamily \label{class_load_balancer_adb25b404325b710d496f7dda4d86c505} 
+void Load\+Balancer\+::assign\+Request (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Assigns pending requests to available servers. 
+
+The function iterates through all servers, and if a server is not busy, it assigns the first request in the queue to that server. \Hypertarget{class_load_balancer_a1b8df390c4252624938aed7e45e1521c}\index{LoadBalancer@{LoadBalancer}!generateRequests@{generateRequests}}
+\index{generateRequests@{generateRequests}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{generateRequests()}{generateRequests()}}
+{\footnotesize\ttfamily \label{class_load_balancer_a1b8df390c4252624938aed7e45e1521c} 
+void Load\+Balancer\+::generate\+Requests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Generates a random number of new requests and adds them to the queue. 
+
+A random number of requests (between 1 and 4) are generated and added to the request queue based on the job type (\textquotesingle{}s\textquotesingle{} or \textquotesingle{}p\textquotesingle{}). \Hypertarget{class_load_balancer_a94bdadfaf5a488583a21db87ca90e303}\index{LoadBalancer@{LoadBalancer}!getRequests@{getRequests}}
+\index{getRequests@{getRequests}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{getRequests()}{getRequests()}}
+{\footnotesize\ttfamily \label{class_load_balancer_a94bdadfaf5a488583a21db87ca90e303} 
+std\+::queue$<$ \mbox{\hyperlink{class_request}{Request}} $>$ \& Load\+Balancer\+::get\+Requests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the queue of pending requests for this \doxylink{class_load_balancer}{Load\+Balancer}. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the request queue. 
+\end{DoxyReturn}
+\Hypertarget{class_load_balancer_a6babaf4d1066687029fe0b20d68f36e7}\index{LoadBalancer@{LoadBalancer}!getScaleDown@{getScaleDown}}
+\index{getScaleDown@{getScaleDown}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{getScaleDown()}{getScaleDown()}}
+{\footnotesize\ttfamily \label{class_load_balancer_a6babaf4d1066687029fe0b20d68f36e7} 
+int Load\+Balancer\+::get\+Scale\+Down (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the number of times servers have been scaled down. 
+
+\begin{DoxyReturn}{Returns}
+The number of times servers have been scaled down. 
+\end{DoxyReturn}
+\Hypertarget{class_load_balancer_ac7cf9aa8265309a9d19b0341b0fe9e88}\index{LoadBalancer@{LoadBalancer}!getScaleUp@{getScaleUp}}
+\index{getScaleUp@{getScaleUp}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{getScaleUp()}{getScaleUp()}}
+{\footnotesize\ttfamily \label{class_load_balancer_ac7cf9aa8265309a9d19b0341b0fe9e88} 
+int Load\+Balancer\+::get\+Scale\+Up (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the number of times servers have been scaled up. 
+
+\begin{DoxyReturn}{Returns}
+The number of times servers have been scaled up. 
+\end{DoxyReturn}
+\Hypertarget{class_load_balancer_a3417eea38df5d8322cdb0cf4f50986f8}\index{LoadBalancer@{LoadBalancer}!getServers@{getServers}}
+\index{getServers@{getServers}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{getServers()}{getServers()}}
+{\footnotesize\ttfamily \label{class_load_balancer_a3417eea38df5d8322cdb0cf4f50986f8} 
+std\+::vector$<$ \mbox{\hyperlink{class_web_server}{Web\+Server}} $>$ \& Load\+Balancer\+::get\+Servers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the list of servers managed by this \doxylink{class_load_balancer}{Load\+Balancer}. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the vector of \doxylink{class_web_server}{Web\+Server} objects. 
+\end{DoxyReturn}
+\Hypertarget{class_load_balancer_aa47c72eb45c13ddefde91a47bedcccc8}\index{LoadBalancer@{LoadBalancer}!getTotalRequests@{getTotalRequests}}
+\index{getTotalRequests@{getTotalRequests}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{getTotalRequests()}{getTotalRequests()}}
+{\footnotesize\ttfamily \label{class_load_balancer_aa47c72eb45c13ddefde91a47bedcccc8} 
+int Load\+Balancer\+::get\+Total\+Requests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the total number of requests processed by all servers. 
+
+This function iterates over all servers and sums their total processed requests.
+
+\begin{DoxyReturn}{Returns}
+The total number of requests processed by all servers. 
+\end{DoxyReturn}
+\Hypertarget{class_load_balancer_af5b99b2c69d79311f1ec034df9cc009c}\index{LoadBalancer@{LoadBalancer}!processServers@{processServers}}
+\index{processServers@{processServers}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{processServers()}{processServers()}}
+{\footnotesize\ttfamily \label{class_load_balancer_af5b99b2c69d79311f1ec034df9cc009c} 
+void Load\+Balancer\+::process\+Servers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Processes requests on all servers. 
+
+Iterates over each server in the pool and processes one request for each server, if available. \Hypertarget{class_load_balancer_ac6acbff80213513aa92bc33342ad045c}\index{LoadBalancer@{LoadBalancer}!scale@{scale}}
+\index{scale@{scale}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{scale()}{scale()}}
+{\footnotesize\ttfamily \label{class_load_balancer_ac6acbff80213513aa92bc33342ad045c} 
+void Load\+Balancer\+::scale (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Scales the number of servers based on the current queue size. 
+
+The function determines the number of servers needed based on the queue size (calculated as {\ttfamily ceil(requests.\+size() / 20.\+0)}), and scales the number of servers up or down accordingly. \Hypertarget{class_load_balancer_aa3128ad651582ef744d2c63651a157cc}\index{LoadBalancer@{LoadBalancer}!scaleDown@{scaleDown}}
+\index{scaleDown@{scaleDown}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{scaleDown()}{scaleDown()}}
+{\footnotesize\ttfamily \label{class_load_balancer_aa3128ad651582ef744d2c63651a157cc} 
+void Load\+Balancer\+::scale\+Down (\begin{DoxyParamCaption}\item[{int}]{num}{}\end{DoxyParamCaption})}
+
+
+
+Decreases the number of servers by a specified amount. 
+
+This function removes {\ttfamily num} servers from the server pool and increments the scale-\/down count.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & The number of servers to remove. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_load_balancer_a5373c7ae5b5d2c2a92176a713ef07494}\index{LoadBalancer@{LoadBalancer}!scaleUp@{scaleUp}}
+\index{scaleUp@{scaleUp}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{scaleUp()}{scaleUp()}}
+{\footnotesize\ttfamily \label{class_load_balancer_a5373c7ae5b5d2c2a92176a713ef07494} 
+void Load\+Balancer\+::scale\+Up (\begin{DoxyParamCaption}\item[{int}]{num}{}\end{DoxyParamCaption})}
+
+
+
+Increases the number of servers by a specified amount. 
+
+This function adds {\ttfamily num} new servers to the server pool and increments the scale-\/up count.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & The number of servers to add. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{load__balancer_8h}{load\+\_\+balancer.\+h}}\item 
+\mbox{\hyperlink{load__balancer_8cpp}{load\+\_\+balancer.\+cpp}}\end{DoxyCompactItemize}

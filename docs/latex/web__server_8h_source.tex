@@ -1,0 +1,28 @@
+\doxysection{web\+\_\+server.\+h}
+\hypertarget{web__server_8h_source}{}\label{web__server_8h_source}\mbox{\hyperlink{web__server_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WEB\_SERVER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WEB\_SERVER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{request_8h}{request.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_web_server_a94ad031e6a83627d4a576e354dd354ac}{WebServer}}\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_web_server_a94ad031e6a83627d4a576e354dd354ac}{WebServer}}(\textcolor{keywordtype}{char}\ type);}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_web_server_af4dad1ab06d4eb72773ba9f3e5482251}{processRequest}}();}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_request}{Request}}\ \mbox{\hyperlink{class_web_server_aa5e1fe7b67c6ef5bef717d774ccb53f9}{getRequest}}();}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_web_server_ad5af1e30da65793cde12d95bb74d4288}{getBusy}}();}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_web_server_a02ffac0344fc83be17d7b5caf0fcb6f4}{getTotal}}();}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_web_server_a7574ccae9aec8b31feeb6019449c792d}{setRequest}}(\mbox{\hyperlink{class_request}{Request}}\&\ request);}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_request}{Request}}\ current\_request;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ type;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ busy;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ total\_processed;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
